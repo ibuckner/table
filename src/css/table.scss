@@ -1,0 +1,78 @@
+@use "globals";
+
+table {
+  border-collapse: collapse;
+  margin: 5px;
+  min-width: 200px;
+  text-align: left;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+}
+
+thead {
+  display: table-header-group;
+  vertical-align: middle;
+}
+
+td {
+  padding: 6px 8px;
+}
+
+th {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: 10px 8px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+tr {
+  display: table-row;
+  vertical-align: inherit;
+}
+
+.table-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.column-sort {
+  cursor: pointer;
+}
+
+.column-sort::after {
+  content: "\00A0\00A0";
+}
+
+.column-sort.asc::after {
+  content: "\00A0\1F815";
+}
+
+.column-sort.desc::after {
+  content: "\00A0\1F817";
+}
+
+.navigation {
+  user-select: none;
+}
+
+.navigation > span {
+  cursor: pointer;
+}
+
+.hidden {
+  @include globals.hidden;
+
+  display: none !important;
+}
+
+.disabled {
+  @include globals.disabled;
+
+  opacity: 0.3;
+}
