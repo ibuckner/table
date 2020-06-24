@@ -14,7 +14,7 @@ export declare type TTable = {
 };
 export declare type TTableOptions = {
     container: HTMLElement;
-    data: TTable[];
+    data: TTable;
     locale?: string;
     rows?: number;
 };

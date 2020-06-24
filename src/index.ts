@@ -17,7 +17,7 @@ export type TTable = {
 
 export type TTableOptions = {
   container: HTMLElement,
-  data: TTable[],
+  data: TTable,
   locale?: string,
   rows?: number
 };
