@@ -32,7 +32,15 @@ th {
 
 tr {
   display: table-row;
-  vertical-align: inherit;
+  vertical-align: middle;
+}
+
+tr.row:nth-child(even) {
+  background: #fff;
+}
+
+tr.row:nth-child(odd) {
+  background: #eee;
 }
 
 .table-grid {
@@ -81,4 +89,13 @@ tr {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
+}
+
+.row-icon {
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.9em;
+  vertical-align: middle;
+  width: 0.9em;
 }

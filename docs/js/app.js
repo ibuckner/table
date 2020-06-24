@@ -1,31 +1,32 @@
 const App = function() {
   const json = {
     headers: [
+      { value: "profession", sort: true },
       { value: "id", sort: true },
       { value: "firstname", sort: true },
       { value: "surname", sort: true }
     ],
     rows: [
-      [{ value: 1 }, { value: "Robert" }, { value: "Johnson" }],
-      [{ value: 2 }, { value: "Jane" }, { value: "Marsh" }],
-      [{ value: 3 }, { value: "Sam" }, { value: "Jackson" }],
-      [{ value: 4 }, { value: "Sarah" }, { value: "Lane" }],
-      [{ value: 5 }, { value: "Ben" }, { value: "Parker" }],
-      [{ value: 6 }, { value: "Peter" }, { value: "Aston" }],
-      [{ value: 7 }, { value: "Mohammed" }, { value: "Rahman" }],
-      [{ value: 8 }, { value: "Jack" }, { value: "Williamson" }],
-      [{ value: 9 }, { value: "Winston" }, { value: "Mugile" }],
-      [{ value: 10 }, { value: "Clare" }, { value: "Roberts" }],
-      [{ value: 11 }, { value: "Kyle" }, { value: "McKinley" }],
-      [{ value: 12 }, { value: "Luke" }, { value: "Starr" }],
-      [{ value: 13 }, { value: "Dan" }, { value: "Boston" }],
-      [{ value: 14 }, { value: "Paul" }, { value: "Pinal" }],
-      [{ value: 15 }, { value: "Lewis" }, { value: "Moody" }],
-      [{ value: 16 }, { value: "Morgan" }, { value: "Ponazi" }],
-      [{ value: 17 }, { value: "Shanice" }, { value: "Jones" }],
-      [{ value: 18 }, { value: "Thomas" }, { value: "Muller" }],
-      [{ value: 19 }, { value: "William" }, { value: "D'Urban" }],
-      [{ value: 20 }, { value: "Arthur" }, { value: "Morris" }],
+      [{ color: "purple", value: "teacher" }, { value: 1 }, { value: "Robert" }, { value: "Johnson" }],
+      [{ color: "purple", value: "teacher" }, { value: 2 }, { value: "Jane" }, { value: "Marsh" }],
+      [{ color: "green", value: "pupil" }, { value: 3 }, { value: "Sam" }, { value: "Jackson" }],
+      [{ color: "green", value: "pupil" }, { value: 4 }, { value: "Sarah" }, { value: "Lane" }],
+      [{ color: "green", value: "pupil" }, { value: 5 }, { value: "Ben" }, { value: "Parker" }],
+      [{ color: "purple", value: "teacher" }, { value: 6 }, { value: "Peter" }, { value: "Aston" }],
+      [{ color: "green", value: "pupil" }, { value: 7 }, { value: "Mohammed" }, { value: "Rahman" }],
+      [{ color: "green", value: "pupil" }, { value: 8 }, { value: "Jack" }, { value: "Williamson" }],
+      [{ color: "purple", value: "teacher" }, { value: 9 }, { value: "Winston" }, { value: "Mugile" }],
+      [{ color: "purple", value: "teacher" }, { value: 10 }, { value: "Clare" }, { value: "Roberts" }],
+      [{ color: "green", value: "pupil" }, { value: 11 }, { value: "Kyle" }, { value: "McKinley" }],
+      [{ color: "purple", value: "teacher" }, { value: 12 }, { value: "Luke" }, { value: "Starr" }],
+      [{ color: "green", value: "pupil" }, { value: 13 }, { value: "Dan" }, { value: "Boston" }],
+      [{ color: "purple", value: "teacher" }, { value: 14 }, { value: "Paul" }, { value: "Pinal" }],
+      [{ color: "green", value: "pupil" }, { value: 15 }, { value: "Lewis" }, { value: "Moody" }],
+      [{ color: "green", value: "pupil" }, { value: 16 }, { value: "Morgan" }, { value: "Ponazi" }],
+      [{ color: "green", value: "pupil" }, { value: 17 }, { value: "Shanice" }, { value: "Jones" }],
+      [{ color: "green", value: "pupil" }, { value: 18 }, { value: "Thomas" }, { value: "Muller" }],
+      [{ color: "green", value: "pupil" }, { value: 19 }, { value: "William" }, { value: "D'Urban" }],
+      [{ color: "green", value: "pupil" }, { value: 20 }, { value: "Arthur" }, { value: "Morris" }],
     ]
   };
 
@@ -39,6 +40,10 @@ const App = function() {
     });
 
     tbl.draw();
+
+    window.addEventListener("row-selected", function(event) {
+      console.log(event.detail);
+    });
   }
 
   function menu() {

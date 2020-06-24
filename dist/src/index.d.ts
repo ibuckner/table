@@ -1,4 +1,5 @@
 export declare type TTableCell = {
+    color?: string;
     label?: string;
     value: string | number | Date;
 };
@@ -29,10 +30,6 @@ export declare class TableGrid {
     private _thead;
     constructor(options: TTableOptions);
     /**
-     * Creates the basic table structure
-     */
-    createTable(): TableGrid;
-    /**
      * Saves data into Table
      * @param data
      */
@@ -46,22 +43,10 @@ export declare class TableGrid {
      */
     draw(): TableGrid;
     /**
-     * Draws the table header
+     * Actions to perform on row click
+     * @param e
      */
-    drawHeader(): TableGrid;
-    /**
-     * Draws the navigation footer
-     */
-    drawNavigation(): TableGrid;
-    /**
-     * Draws the table rows
-     */
-    drawRows(): TableGrid;
-    /**
-     * Updates table rows on scroll
-     * @param n relative number to scroll by
-     */
-    scrollRows(n: number): TableGrid;
+    rowClickHandler(e: MouseEvent): void;
     /**
      * Provides the sorting logic for the table columns
      * @param e
@@ -71,4 +56,25 @@ export declare class TableGrid {
      * Serialise the data
      */
     toString(): string;
+    /**
+     * Creates the basic table structure
+     */
+    private _createTable;
+    /**
+     * Draws the table header
+     */
+    private _drawHeader;
+    /**
+     * Draws the navigation footer
+     */
+    private _drawNavigation;
+    /**
+     * Draws the table rows
+     */
+    private _drawRows;
+    /**
+     * Updates table rows on scroll
+     * @param n relative number to scroll by
+     */
+    private _scrollRows;
 }
