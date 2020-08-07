@@ -9,6 +9,7 @@
 .stylelintrc
 postcss.config.js
 build
+coverage
 node_modules
 rollup.config.js
 src

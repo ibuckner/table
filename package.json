@@ -1,6 +1,6 @@
 {
   "name": "@buckneri/table",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Just an HTML table",
   "main": "./dist/table.js",
   "types": "./dist/index.d.ts",
@@ -11,7 +11,6 @@
     "c-postcss": "postcss docs/css/table.css --no-map -o docs/css/table.css -c postcss.config.js",
     "c-scss": "sass src/css:docs/css --no-source-map",
     "eslint": "eslint -c .eslintrc.json --ext .ts --ext .js ./src",
-    "list-globals": "npm list -g --depth 0",
     "make": "npm run c-scss & npm run c-postcss & npm run m-typedef & npm run m-rmdir & npm run m-css",
     "m-css": "cpy docs/css/table.css dist",
     "m-typedef": "move-file dist/src/index.d.ts dist/index.d.ts",
@@ -41,6 +40,7 @@
     "eslint": "^7.5.0",
     "eslint-plugin-import": "^2.22.0",
     "eslint-plugin-jsdoc": "30.0.3",
+    "http-server": "^0.12.3",
     "jest": "^26.1.0",
     "jsdoc": "3.6.5",
     "npm-run-all": "^4.1.5",

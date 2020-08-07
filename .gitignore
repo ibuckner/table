@@ -1,6 +1,10 @@
-logs
 *.log
+npm-debug.log*
+.npm
+coverage
+dist
 node_modules
 .npm
 npm-debug.log
 package-lock.json
+private
