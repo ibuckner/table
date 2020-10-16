@@ -1,11 +1,4 @@
 const App = function() {
-  const header =  [
-    { value: "profession", sort: true },
-    { value: "id", sort: true },
-    { value: "firstname", sort: true },
-    { value: "surname", sort: true }
-  ];
-
   const rows = [
     { cells: [{ color: "purple", value: "teacher" }, { value: 1 }, { value: "Robert" }, { value: "Johnson" }]},
     { cells: [{ color: "purple", value: "teacher" }, { value: 2 }, { value: "Jane" }, { value: "Marsh" }]},
@@ -34,11 +27,16 @@ const App = function() {
     menu();
 
     const tbl = new chart.TableGrid({
-      container: document.getElementById("table")
+      container: document.getElementById("table"),
+      header: [
+        { value: "profession", sort: true },
+        { value: "id", sort: true },
+        { value: "firstname", sort: true },
+        { value: "surname", sort: true }
+      ]
     });
 
-    tbl.header(header)
-      .data(rows)
+    tbl.data(rows)
       .draw();
 
     form(tbl);

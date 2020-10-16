@@ -19,6 +19,7 @@ export type TTableRow = {
 
 export type TTableOptions = {
   container: HTMLElement,
+  header: TTableHeaderCell[];
   locale?: string,
   rows?: number
 };
@@ -47,6 +48,10 @@ export class TableGrid {
 
     if (options.rows !== undefined) {
       this.rows = options.rows;
+    }
+
+    if (options.header !== undefined) {
+      this._header = options.header;
     }
   }
 
@@ -96,16 +101,6 @@ export class TableGrid {
         ._drawNavigation();
     return this;
   }
-
-  /**
-   * Saves data into TableGrid
-   * @param header 
-   */
-  public header(header: TTableHeaderCell[]): TableGrid {
-    this._header = header;
-    return this;
-  }
-
 
   /**
    * Actions to perform on row click

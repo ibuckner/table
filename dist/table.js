@@ -157,6 +157,9 @@ var TableGrid = /** @class */ (function () {
         if (options.rows !== undefined) {
             this.rows = options.rows;
         }
+        if (options.header !== undefined) {
+            this._header = options.header;
+        }
     }
     /**
      * Clears out all rows and headers from table
@@ -201,14 +204,6 @@ var TableGrid = /** @class */ (function () {
             ._drawHeader()
             ._drawRows()
             ._drawNavigation();
-        return this;
-    };
-    /**
-     * Saves data into TableGrid
-     * @param header
-     */
-    TableGrid.prototype.header = function (header) {
-        this._header = header;
         return this;
     };
     /**

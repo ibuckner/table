@@ -14,6 +14,7 @@ export declare type TTableRow = {
 };
 export declare type TTableOptions = {
     container: HTMLElement;
+    header: TTableHeaderCell[];
     locale?: string;
     rows?: number;
 };
@@ -46,11 +47,6 @@ export declare class TableGrid {
      * Draws the table
      */
     draw(): TableGrid;
-    /**
-     * Saves data into TableGrid
-     * @param header
-     */
-    header(header: TTableHeaderCell[]): TableGrid;
     /**
      * Actions to perform on row click
      * @param e
