@@ -77,3 +77,30 @@ h2 {
   top: 0;
   width: 100%;
 }
+
+#form {
+  align-items: flex-end;
+  display: flex;
+  flex-direction: column;
+  left: 0;
+  margin: 10px 10px;
+  position: fixed;
+  top: calc(65%)
+}
+
+label {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+input {
+  margin-left: 15px;
+  width: 150px
+}
+
+button {
+  margin: 15px 15px;
+  width: 75px
+}

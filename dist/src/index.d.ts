@@ -8,13 +8,12 @@ export declare type TTableHeaderCell = {
     value: string | number | Date;
     sort: boolean;
 };
-export declare type TTable = {
-    headers: TTableHeaderCell[];
-    rows: TTableCell[][];
+export declare type TTableRow = {
+    cells: TTableCell[];
+    drawn?: boolean;
 };
 export declare type TTableOptions = {
     container: HTMLElement;
-    data: TTable;
     locale?: string;
     rows?: number;
 };
@@ -24,20 +23,30 @@ export declare class TableGrid {
     rows: number;
     private _cursor;
     private _data;
+    private _header;
     private _id;
     private _table;
     private _tbody;
     private _thead;
     constructor(options: TTableOptions);
     /**
-     * Saves data into Table
+     * Clears out all rows and headers from table
+     */
+    clear(): TableGrid;
+    /**
+     * Saves data into TableGrid
      * @param data
      */
-    data(data: any): TableGrid;
+    data(rows: TTableRow[]): TableGrid;
     /**
      * Removes this table from the DOM
      */
     destroy(): TableGrid;
+    /**
+     * Saves data into TableGrid
+     * @param header
+     */
+    header(header: TTableHeaderCell[]): TableGrid;
     /**
      * Draws the table
      */
