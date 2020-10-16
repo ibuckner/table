@@ -284,7 +284,7 @@ var TableGrid = /** @class */ (function () {
     TableGrid.prototype._createTable = function () {
         var _this = this;
         if (!this._id) {
-            this._id = "table" + Array.from(document.querySelectorAll(".table")).length;
+            this._id = "table" + Array.from(document.querySelectorAll("table")).length;
         }
         this._table = document.getElementById(this._id);
         if (!this._table) {

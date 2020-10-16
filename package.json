@@ -1,6 +1,6 @@
 {
   "name": "@buckneri/table",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Just an HTML table",
   "main": "./dist/table.js",
   "types": "./dist/index.d.ts",

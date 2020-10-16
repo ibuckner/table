@@ -172,7 +172,7 @@ export class TableGrid {
    */
   private _createTable(): TableGrid {
     if (!this._id) {
-      this._id = "table" + Array.from(document.querySelectorAll(".table")).length;
+      this._id = "table" + Array.from(document.querySelectorAll("table")).length;
     }
     this._table = document.getElementById(this._id) as HTMLTableElement;
     if (!this._table) {
