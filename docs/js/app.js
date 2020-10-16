@@ -46,6 +46,19 @@ const App = function() {
     window.addEventListener("row-selected", e => console.log(e.detail));
   }
 
+  function clear() {
+    const cl = document.getElementById("selColor");
+    cl.value = "#000000";
+    const pr = document.getElementById("txtProfession");
+    pr.value = "";
+    const id = document.getElementById("txtId");
+    id.value = "";
+    const fn = document.getElementById("txtFirstname");
+    fn.value = "";
+    const sn = document.getElementById("txtSurname");
+    sn.value = "";
+  }
+
   function form(t) {
     const cl = document.getElementById("selColor");
     cl.addEventListener("change", () => add.disabled = (cl.value === "" || pr.value === "" || id.value === "" || fn.value === "" || sn.value === ""));
@@ -63,14 +76,14 @@ const App = function() {
     sn.addEventListener("change", () => add.disabled = (cl.value === "" || pr.value === "" || id.value === "" || fn.value === "" || sn.value === ""));
 
     const clr = document.getElementById("btnClear");
-    clr.addEventListener("click", () => cl.value = "", pr.value = "", id.value = "", fn.value = "", sn.value = "");
+    clr.addEventListener("click", clear);
 
     const add = document.getElementById("btnAdd");
     add.addEventListener("click", () => {
       if (cl.value !== "" && pr.value !== "" && id.value !== "" && fn.value !== "" && sn.value !== "") {
         t.data({ cells: [{ color: cl.value, value: pr.value }, { value: id.value }, { value: fn.value }, { value: sn.value }]})
          .draw();
-        clr.dispatchEvent(new MouseEvent("click"));
+        clear();
       }
     });
   }

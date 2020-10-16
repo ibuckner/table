@@ -69,8 +69,12 @@ export class TableGrid {
    * Saves data into TableGrid
    * @param data
    */
-  public data(rows: TTableRow[]): TableGrid {
-    rows.map((r: TTableRow) => this._data.push(r));
+  public data(rows: TTableRow | TTableRow[]): TableGrid {
+    if (Array.isArray(rows)) {
+      rows.map((r: TTableRow) => this._data.push(r));
+    } else {
+      this._data.push(rows);
+    }
     return this;
   }
 
@@ -79,15 +83,6 @@ export class TableGrid {
    */
   public destroy(): TableGrid {
     this.container.removeChild(this.container.querySelector("table") as HTMLTableElement);
-    return this;
-  }
-
-  /**
-   * Saves data into TableGrid
-   * @param header 
-   */
-  public header(header: TTableHeaderCell[]): TableGrid {
-    this._header = header;
     return this;
   }
 
@@ -101,6 +96,16 @@ export class TableGrid {
         ._drawNavigation();
     return this;
   }
+
+  /**
+   * Saves data into TableGrid
+   * @param header 
+   */
+  public header(header: TTableHeaderCell[]): TableGrid {
+    this._header = header;
+    return this;
+  }
+
 
   /**
    * Actions to perform on row click
@@ -277,10 +282,10 @@ export class TableGrid {
           }
         });
       };
-      bb.addEventListener("click", debounce(300, _ => { first(), updateNav(); }));
-      b.addEventListener("mousedown", debounce(300, _ => { prev(), updateNav(); }));
-      f.addEventListener("mousedown", debounce(300, _ => { next(), updateNav(); }));
-      ff.addEventListener("click", debounce(300, _ => { last(), updateNav(); }));
+      bb.addEventListener("click", debounce(250, _ => { first(), updateNav(); }));
+      b.addEventListener("mousedown", debounce(250, _ => { prev(), updateNav(); }));
+      f.addEventListener("mousedown", debounce(250, _ => { next(), updateNav(); }));
+      ff.addEventListener("click", debounce(250, _ => { last(), updateNav(); }));
     });
 
     return this;
@@ -290,11 +295,12 @@ export class TableGrid {
    * Draws the table rows
    */
   private _drawRows(): TableGrid {
+    let visibleRows = this._tbody?.querySelectorAll("tr.row:not(.hidden)").length || 0;
     this._data.forEach((row: TTableRow, i: number) => {
       if (!row.drawn) {
         const tr: HTMLTableRowElement = document.createElement("tr");
         tr.classList.add("row");
-        if (this.rows < i + 1) {
+        if (visibleRows + 1 > this.rows) {
           tr.classList.add("hidden");
         }
         let html = "";
@@ -314,6 +320,7 @@ export class TableGrid {
         this._tbody?.appendChild(tr);
         row.drawn = true;
       }
+      ++visibleRows;
     });
     return this;
   }

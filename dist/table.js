@@ -178,7 +178,12 @@ var TableGrid = /** @class */ (function () {
      */
     TableGrid.prototype.data = function (rows) {
         var _this = this;
-        rows.map(function (r) { return _this._data.push(r); });
+        if (Array.isArray(rows)) {
+            rows.map(function (r) { return _this._data.push(r); });
+        }
+        else {
+            this._data.push(rows);
+        }
         return this;
     };
     /**
@@ -189,14 +194,6 @@ var TableGrid = /** @class */ (function () {
         return this;
     };
     /**
-     * Saves data into TableGrid
-     * @param header
-     */
-    TableGrid.prototype.header = function (header) {
-        this._header = header;
-        return this;
-    };
-    /**
      * Draws the table
      */
     TableGrid.prototype.draw = function () {
@@ -204,6 +201,14 @@ var TableGrid = /** @class */ (function () {
             ._drawHeader()
             ._drawRows()
             ._drawNavigation();
+        return this;
+    };
+    /**
+     * Saves data into TableGrid
+     * @param header
+     */
+    TableGrid.prototype.header = function (header) {
+        this._header = header;
         return this;
     };
     /**
@@ -378,10 +383,10 @@ var TableGrid = /** @class */ (function () {
                     }
                 });
             };
-            bb.addEventListener("click", debounce(300, function (_) { first(), updateNav(); }));
-            b.addEventListener("mousedown", debounce(300, function (_) { prev(), updateNav(); }));
-            f.addEventListener("mousedown", debounce(300, function (_) { next(), updateNav(); }));
-            ff.addEventListener("click", debounce(300, function (_) { last(), updateNav(); }));
+            bb.addEventListener("click", debounce(250, function (_) { first(), updateNav(); }));
+            b.addEventListener("mousedown", debounce(250, function (_) { prev(), updateNav(); }));
+            f.addEventListener("mousedown", debounce(250, function (_) { next(), updateNav(); }));
+            ff.addEventListener("click", debounce(250, function (_) { last(), updateNav(); }));
         });
         return this;
     };
@@ -390,12 +395,14 @@ var TableGrid = /** @class */ (function () {
      */
     TableGrid.prototype._drawRows = function () {
         var _this = this;
+        var _a;
+        var visibleRows = ((_a = this._tbody) === null || _a === void 0 ? void 0 : _a.querySelectorAll("tr.row:not(.hidden)").length) || 0;
         this._data.forEach(function (row, i) {
             var _a;
             if (!row.drawn) {
                 var tr = document.createElement("tr");
                 tr.classList.add("row");
-                if (_this.rows < i + 1) {
+                if (visibleRows + 1 > _this.rows) {
                     tr.classList.add("hidden");
                 }
                 var html_1 = "";
@@ -415,6 +422,7 @@ var TableGrid = /** @class */ (function () {
                 (_a = _this._tbody) === null || _a === void 0 ? void 0 : _a.appendChild(tr);
                 row.drawn = true;
             }
+            ++visibleRows;
         });
         return this;
     };

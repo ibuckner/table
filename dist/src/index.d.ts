@@ -37,20 +37,20 @@ export declare class TableGrid {
      * Saves data into TableGrid
      * @param data
      */
-    data(rows: TTableRow[]): TableGrid;
+    data(rows: TTableRow | TTableRow[]): TableGrid;
     /**
      * Removes this table from the DOM
      */
     destroy(): TableGrid;
     /**
+     * Draws the table
+     */
+    draw(): TableGrid;
+    /**
      * Saves data into TableGrid
      * @param header
      */
     header(header: TTableHeaderCell[]): TableGrid;
-    /**
-     * Draws the table
-     */
-    draw(): TableGrid;
     /**
      * Actions to perform on row click
      * @param e
