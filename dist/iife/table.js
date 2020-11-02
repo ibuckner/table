@@ -405,15 +405,7 @@ var chart = (function (exports) {
                   }
                   var html_1 = "";
                   row.cells.forEach(function (cell) {
-                      html_1 += "<td";
-                      if (cell.label) {
-                          html_1 += " title=\"" + cell.label + "\"";
-                      }
-                      html_1 += ">";
-                      if (cell.color) {
-                          html_1 += "<div class=\"row-icon\" style=\"background-color:" + cell.color + "\"></div> ";
-                      }
-                      html_1 += cell.value + "</td>";
+                      html_1 += "<td class=\"ellipsis\" title=\"" + (cell.label ? cell.label : cell.value) + "\">\n          <span>" + (cell.color ? "<div class=\"row-icon\" style=\"background-color:" + cell.color + "\"></div>" : "") + "\n          " + cell.value + "</span>\n          </td>";
                   });
                   tr.innerHTML = html_1;
                   tr.dataset.row = JSON.stringify(row);

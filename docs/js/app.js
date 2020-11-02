@@ -19,7 +19,7 @@ const App = function() {
     { cells: [{ color: "green", value: "pupil" }, { value: 17 }, { value: "Shanice" }, { value: "Jones" }]},
     { cells: [{ color: "green", value: "pupil" }, { value: 18 }, { value: "Thomas" }, { value: "Muller" }]},
     { cells: [{ color: "green", value: "pupil" }, { value: 19 }, { value: "William" }, { value: "D'Urban" }]},
-    { cells: [{ color: "green", value: "pupil" }, { value: 20 }, { value: "Arthur" }, { value: "Morris" }]},
+    { cells: [{ color: "lightblue", value: "Logistics and catering field commander, 1st Class" }, { value: 20 }, { value: "Sigfried" }, { value: "Von der Hauptschnitzel" }]},
   ];
 
   function start() {

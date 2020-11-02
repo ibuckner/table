@@ -20,6 +20,24 @@ td {
   padding: 6px 8px;
 }
 
+td.ellipsis {
+  position: relative;
+}
+
+td.ellipsis::before {
+  content: "&nbsp;";
+  visibility: hidden;
+}
+
+td.ellipsis > span {
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 th {
   font-size: 1.2em;
   font-weight: bold;
@@ -96,6 +114,7 @@ tr.row:nth-child(odd) {
   border-radius: 50%;
   display: inline-block;
   height: 0.9em;
+  text-align: left;
   vertical-align: middle;
   width: 0.9em;
 }

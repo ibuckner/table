@@ -300,15 +300,10 @@ export class TableGrid {
         }
         let html = "";
         row.cells.forEach((cell: TTableCell) => {
-          html += "<td";
-          if (cell.label) {
-            html += ` title="${cell.label}"`;
-          }
-          html += ">";
-          if (cell.color) {
-            html += `<div class="row-icon" style="background-color:${cell.color}"></div> `;
-          }
-          html += `${cell.value}</td>`;
+          html += `<td class="ellipsis" title="${cell.label ? cell.label : cell.value}">
+          <span>${cell.color ? `<div class="row-icon" style="background-color:${cell.color}"></div>` : ``}
+          ${cell.value}</span>
+          </td>`;
         });
         tr.innerHTML = html;
         tr.dataset.row = JSON.stringify(row);

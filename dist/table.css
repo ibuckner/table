@@ -20,6 +20,24 @@ td {
   padding: 6px 8px;
 }
 
+td.ellipsis {
+  position: relative;
+}
+
+td.ellipsis::before {
+  content: "&nbsp;";
+  visibility: hidden;
+}
+
+td.ellipsis > span {
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
 th {
   font-size: 1.2em;
   font-weight: bold;
@@ -32,13 +50,20 @@ th {
 
 tr {
   display: table-row;
-  vertical-align: inherit;
+  vertical-align: middle;
+}
+
+tr.row:nth-child(even) {
+  background: #fff;
+}
+
+tr.row:nth-child(odd) {
+  background: #eee;
 }
 
 .table-grid {
   display: flex;
-  flex-direction: row;
-  justify-content: stretch;
+  flex-direction: column;
   width: 100%;
 }
 
@@ -58,26 +83,38 @@ tr {
   content: " 🠗";
 }
 
-div.table-scroll {
-  background-color: #ddd;
+.navigation {
   -webkit-user-select: none;
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  width: 22px !important;
 }
 
-div.table-scroll-handle {
-  background-color: #aaa;
-  border: 1px solid #aaa;
-  border-radius: 4px;
-  height: 20px;
-  position: relative;
-  top: 0;
-  width: 20px;
+.navigation > span {
+  cursor: pointer;
 }
 
-div.table-scroll-handle:hover {
-  background-color: #888;
-  border: 1px solid #888;
+.hidden {
+  display: none !important;
+  opacity: 0 !important;
+}
+
+.disabled {
+  cursor: not-allowed;
+  opacity: 0.3;
+  pointer-events: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
+.row-icon {
+  border: 1px solid #000;
+  border-radius: 50%;
+  display: inline-block;
+  height: 0.9em;
+  text-align: left;
+  vertical-align: middle;
+  width: 0.9em;
 }
