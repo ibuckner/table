@@ -42,7 +42,6 @@ th {
   font-size: 1.2em;
   font-weight: bold;
   padding: 10px 8px;
-  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 2;
