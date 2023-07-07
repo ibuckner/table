@@ -51,7 +51,7 @@
     "rollup": "2.56.3",
     "rollup-plugin-typescript2": "^0.30.0",
     "sass": "^1.39.2",
-    "stylelint": "^13.13.1",
+    "stylelint": "^15.10.1",
     "throttle-debounce": "^3.0.1",
     "typescript": "^4.4.2"
   },
